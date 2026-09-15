@@ -1,0 +1,17 @@
+[
+  {
+    "mutation": "< → <=",
+    "snippet": "for (let t = 16; t < 64; t++) {",
+    "reason": "Genuinely equivalent: the mutated bound runs one extra schedule iteration writing w[64], out of bounds on the fixed Uint32Array(64) — typed-array OOB writes are discarded, the loop body has no other effect, nothing reads past w[63]. Bit-identical; FIPS vectors pass either way."
+  },
+  {
+    "mutation": "< → <=",
+    "snippet": "for (let i = start; i < text.length; i++) {",
+    "reason": "Genuinely equivalent: the mutated bound runs one extra iteration reading text[text.length]=undefined, which matches none of the brace/quote/backslash branches; depth is unchanged and the scan returns exactly as before (null if never balanced). Identical for every input."
+  },
+  {
+    "mutation": "|| → &&",
+    "snippet": "if (!isObj(item) || !isStr(item.hash) || !isStr(item.prevHash) || !isObj(item.entry)) retu",
+    "reason": "Genuinely equivalent (the middle || variant): differs only when exactly ONE of item.hash / item.prevHash is a non-string, both shadowed by the strict recomputation — a non-string hash cannot strictly equal the recomputed primitive-string hash, and a non-string prevHash cannot equal expectedPrev (GENESIS or a prior primitive-string hash). The killable outer-clause forgeries (array link, string entry with honest hash) are killed by the suite."
+  }
+]
