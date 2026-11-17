@@ -18,7 +18,7 @@ trail.* agent-proof is that gate + that trail.
   forbidden content, numeric invariants, a step ceiling. Names every violation, with the step. No
   model grades the model.
 - **Audit ledger** — every checked run lands on a SHA-256 hash chain. Tamper with any entry and
-  the chain breaks visibly. This is what an auditor (or the EU AI Act, deadline 2 Aug 2026) wants.
+  the chain breaks visibly. This is what an auditor (or the EU AI Act, whose high-risk logging duty applies from 2 Dec 2027) wants.
 - **Regression gate** — run the agent across a fixed scenario suite; certified only if **every**
   scenario obeys the policy. One rogue fails the whole thing. The verdict seals into a
   content-addressed receipt that verifies anywhere — and **FAILS is a first-class receipt.**
